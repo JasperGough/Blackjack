@@ -1,3 +1,21 @@
 #BlueJ class context
 comment0.target=State
-numComments=1
+comment1.params=playerName
+comment1.target=void\ setPlayerName(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getPlayerName()
+comment3.params=card
+comment3.target=void\ setPlayerTotal(int)
+comment4.params=
+comment4.target=int\ getPlayerTotal()
+comment5.params=
+comment5.target=void\ setDealerTotal()
+comment6.params=
+comment6.target=int\ getDealerTotal()
+comment7.params=
+comment7.target=java.lang.String\ getResult()
+comment8.params=
+comment8.target=void\ drawCard()
+comment9.params=
+comment9.target=int\ getCurrentCard()
+numComments=10

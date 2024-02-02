@@ -30,6 +30,5 @@ public class Constants
     public static final String DEALER_HIT = "Dealer drew a %s, their total is now %d.";
     public static final String DEALER_STAND = "Dealer stands. They have %d to your %d.";
     public static final String GAME_WIN = "%s wins!";
-    public static final String GAME_LOSE = "Dealer wins!";
     public static final String ROUND_TWO = "Play again? (Y/N)";
 }

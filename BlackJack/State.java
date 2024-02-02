@@ -16,4 +16,44 @@ public class State
         {Constants.QUEEN,Constants.QUEEN,Constants.QUEEN,Constants.QUEEN},
         {Constants.KING,Constants.KING,Constants.KING,Constants.KING}
     };
+    private String playerName = "";
+    private int gameState = Constants.STANDBY;
+    private int playerTotal = 0;
+    private int dealerTotal = 0;
+    private int currentCard = 0;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+    public String getPlayerName() {
+        return playerName;
+    }
+    public void setPlayerTotal(int card) {
+        this.playerTotal+=card;
+    }
+    public int getPlayerTotal() {
+        return playerTotal;
+    }
+    public void setDealerTotal() {
+        this.dealerTotal+=currentCard;
+    }
+    public int getDealerTotal() {
+        return dealerTotal;
+    }
+    public String getResult() {
+        if (playerTotal > dealerTotal) {
+            return playerName;
+        } else if (dealerTotal > playerTotal) {
+            return "Dealer";
+        } else
+        return "Nobody";
+    }
+    public void drawCard() {
+        int suit = (int)Math.random()*3;
+        int card = (int)(Math.random()*12);
+        currentCard = deck[card][suit];
+        deck[suit][card] = 0;
+    }
+    public int getCurrentCard() {
+        return currentCard;
+    }
 }
