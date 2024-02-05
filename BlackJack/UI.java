@@ -8,11 +8,12 @@ public class UI
        scanner = new Scanner(System.in);
    }
    public String promptForName() {
-       System.out.print(Constants.GET_PLAYER_NAME);
+       System.out.println(Constants.GET_PLAYER_NAME);
        return scanner.next();
    }
-   public String getMove() {
-       System.out.printf(Constants.GET_MOVE, );
-       
+   public boolean getMove(State state) {
+       System.out.printf(Constants.GET_MOVE, state.getPlayerName(), state.getPlayerTotal());
+       String hit = scanner.next();
+       return hit.equalsIgnoreCase("Y");
    }
 }

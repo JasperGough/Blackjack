@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=UI()
 comment2.params=
 comment2.target=java.lang.String\ promptForName()
-numComments=3
+comment3.params=state
+comment3.target=boolean\ getMove(State)
+numComments=4

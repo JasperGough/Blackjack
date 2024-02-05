@@ -48,10 +48,15 @@ public class State
         return "Nobody";
     }
     public void drawCard() {
-        int suit = (int)Math.random()*3;
-        int card = (int)(Math.random()*12);
-        currentCard = deck[card][suit];
-        deck[suit][card] = 0;
+        currentCard=0;
+        int suit;
+        int card;
+        if (currentCard == 0) {
+            suit = (int)Math.random()*3;
+            card = (int)(Math.random()*12);
+            currentCard = deck[card][suit];
+        }
+        deck[card][suit] = 0;
     }
     public int getCurrentCard() {
         return currentCard;
