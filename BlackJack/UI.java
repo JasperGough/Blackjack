@@ -16,4 +16,14 @@ public class UI
        String hit = scanner.next();
        return hit.equalsIgnoreCase("Y");
    }
+   public void printInvalidChoice() {
+       System.out.println(Constants.INVALID_CHOICE);
+   }
+   public void printWinner (State state) {
+       System.out.printf(Constants.GAME_WIN, state.getResult());
+       System.out.println();
+   }
+   public void printMove (State state) {
+       
+   }
 }

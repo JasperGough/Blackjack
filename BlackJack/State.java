@@ -21,6 +21,8 @@ public class State
     private int playerTotal = 0;
     private int dealerTotal = 0;
     private int currentCard = 0;
+    private int card;
+    private int suit;
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
@@ -49,11 +51,9 @@ public class State
     }
     public void drawCard() {
         currentCard=0;
-        int suit;
-        int card;
         if (currentCard == 0) {
+            card =(int)(Math.random()*12);
             suit = (int)Math.random()*3;
-            card = (int)(Math.random()*12);
             currentCard = deck[card][suit];
         }
         deck[card][suit] = 0;
