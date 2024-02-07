@@ -24,6 +24,11 @@ public class UI
        System.out.println();
    }
    public void printMove (State state) {
-       
+       System.out.printf(Constants.PRINT_DRAW, state.getCurrentCardString(), state.getPlayerTotal());
+       System.out.println();
+   }
+   public void printDealerMove (State state) {
+       System.out.printf(Constants.DEALER_HIT, state.getCurrentCardString(), state.getDealerTotal());
+       System.out.println();
    }
 }

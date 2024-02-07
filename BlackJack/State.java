@@ -12,9 +12,9 @@ public class State
         {8,8,8,8},
         {9,9,9,9},
         {10,10,10,10},
-        {Constants.JACK,Constants.JACK,Constants.JACK,Constants.JACK},
-        {Constants.QUEEN,Constants.QUEEN,Constants.QUEEN,Constants.QUEEN},
-        {Constants.KING,Constants.KING,Constants.KING,Constants.KING}
+        {11,11,11,11},
+        {12,12,12,12},
+        {13,13,13,13}
     };
     private String playerName = "";
     private int gameState = Constants.STANDBY;
@@ -23,6 +23,9 @@ public class State
     private int currentCard = 0;
     private int card;
     private int suit;
+    private String currentCardString = "";
+    public void resetDeck() {
+    }
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
@@ -56,9 +59,24 @@ public class State
             suit = (int)Math.random()*3;
             currentCard = deck[card][suit];
         }
+        if (currentCard == 11) {
+            currentCardString = "jack";
+            currentCard = 10;
+        } else if (currentCard == 12) {
+            currentCardString = "queen";
+            currentCard = 10;
+        } else if (currentCard == 13) {
+            currentCardString = "king";
+            currentCard = 10;
+        } else {
+            currentCardString = Integer.toString(currentCard);
+        }
         deck[card][suit] = 0;
     }
     public int getCurrentCard() {
         return currentCard;
+    }
+    public String getCurrentCardString() {
+        return currentCardString;
     }
 }

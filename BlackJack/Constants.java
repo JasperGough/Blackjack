@@ -4,9 +4,6 @@ public class Constants
     public static final int DECK_SIZE = 52;
     public static final int SUIT_SIZE = 13;
     public static final int SUIT_NUMBER = 4;
-    public static final int JACK = 11;
-    public static final int QUEEN = 12;
-    public static final int KING = 13;
     
     public static final int STANDBY = 0;
     public static final int GET_NAME = 1;
