@@ -1,7 +1,7 @@
 
 public class State
 {
-    int[][] deck = {
+    private int[][] deck = {
         {1,1,1,1},
         {2,2,2,2},
         {3,3,3,3},
@@ -25,6 +25,11 @@ public class State
     private int suit;
     private String currentCardString = "";
     public void resetDeck() {
+        for (int i = 0; i < Constants.SUIT_SIZE; i++) {
+            for (int j = 0; j < Constants.SUIT_NUMBER; j++) {
+                deck[i][j] = i+1;
+            }
+        }
     }
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
@@ -32,14 +37,20 @@ public class State
     public String getPlayerName() {
         return playerName;
     }
-    public void setPlayerTotal(int card) {
-        this.playerTotal+=card;
+    public void setPlayerTotal(int value) {
+        this.playerTotal+=value;
+        if (playerTotal > 21) {
+            playerTotal = -1;
+        }
     }
     public int getPlayerTotal() {
         return playerTotal;
     }
-    public void setDealerTotal() {
-        this.dealerTotal+=currentCard;
+    public void setDealerTotal(int value) {
+        this.dealerTotal+=value;
+        if (dealerTotal > 21) {
+            dealerTotal = -1;
+        }
     }
     public int getDealerTotal() {
         return dealerTotal;
@@ -54,7 +65,7 @@ public class State
     }
     public void drawCard() {
         currentCard=0;
-        if (currentCard == 0) {
+        while (currentCard == 0) {
             card =(int)(Math.random()*12);
             suit = (int)Math.random()*3;
             currentCard = deck[card][suit];

@@ -31,4 +31,9 @@ public class UI
        System.out.printf(Constants.DEALER_HIT, state.getCurrentCardString(), state.getDealerTotal());
        System.out.println();
    }
+   public boolean getShuffle() {
+       System.out.println(Constants.SHUFFLE);
+       String answer = scanner.next();
+       return answer.equalsIgnoreCase("Y");
+   }
 }

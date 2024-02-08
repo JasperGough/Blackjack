@@ -14,4 +14,6 @@ comment6.params=state
 comment6.target=void\ printMove(State)
 comment7.params=state
 comment7.target=void\ printDealerMove(State)
-numComments=8
+comment8.params=
+comment8.target=boolean\ getShuffle()
+numComments=9
