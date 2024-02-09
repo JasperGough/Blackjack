@@ -1,33 +1,30 @@
-
-/**
- * Write a description of class EventLoop here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class EventLoop
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class EventLoop
-     */
-    public EventLoop()
-    {
-        // initialise instance variables
-        x = 0;
+    State state = new State();
+    UI ui = new UI();
+    
+    public static void main(String[] args) {
+        EventLoop eventLoop = new EventLoop();
+        eventLoop.run();
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void run() {
+        while (state.getGameState() != Constants.QUIT_PROGRAM) {
+            int gameState = state.getGameState();
+            if (gameState == Constants.STANDBY) {
+                state.setPlayerTotal(state.getPlayerTotal() * -1);
+                state.setDealerTotal(state.getDealerTotal() * -1);
+                state.setGameState(Constants.GET_NAME);
+            } else if (gameState == Constants.GET_NAME) {
+                state.setPlayerName(ui.promptForName());
+                state.setGameState(Constants.GET_SHUFFLE);
+            } else if (gameState == Constants.GET_SHUFFLE) {
+                if (ui.getShuffle()) {
+                    state.shuffleDeck();
+                }
+                state.setGameState(Constants.START_GAME);
+            } else if (gameState == Constants.START_GAME) {
+                
+            }
+        }
     }
 }

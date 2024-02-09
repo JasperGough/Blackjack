@@ -24,11 +24,25 @@ public class State
     private int card;
     private int suit;
     private String currentCardString = "";
-    public void resetDeck() {
+    public void setGameState(int gameState) {
+        this.gameState = gameState;
+    }
+    public int getGameState() {
+        return this.gameState;
+    }
+    public void shuffleDeck() {
         for (int i = 0; i < Constants.SUIT_SIZE; i++) {
             for (int j = 0; j < Constants.SUIT_NUMBER; j++) {
                 deck[i][j] = i+1;
             }
+        }
+    }
+    public void getDeck() {
+        for (int i = 0; i < Constants.SUIT_SIZE; i++) {
+            for (int j = 0; j < Constants.SUIT_NUMBER; j++) {
+                System.out.print(deck[i][j]);
+            }
+            System.out.println();
         }
     }
     public void setPlayerName(String playerName) {
