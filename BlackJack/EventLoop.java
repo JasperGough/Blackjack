@@ -20,10 +20,37 @@ public class EventLoop
             } else if (gameState == Constants.GET_SHUFFLE) {
                 if (ui.getShuffle()) {
                     state.shuffleDeck();
+                    ui.printDeckShuffled();
                 }
                 state.setGameState(Constants.START_GAME);
             } else if (gameState == Constants.START_GAME) {
-                
+                ui.printGameStart();
+                try
+                {
+                    Thread.sleep(Constants.DELAY);
+                }
+                catch (InterruptedException ie)
+                {
+                    ie.printStackTrace();
+                }
+                for (int i = 0; i < 2; i++) {
+                    state.drawCard();
+                    state.setPlayerTotal(state.getCurrentCard());
+                    ui.printMove(state);
+                    try
+                    {
+                        Thread.sleep(Constants.DELAY);
+                    }
+                    catch (InterruptedException ie)
+                    {
+                        ie.printStackTrace();
+                    }
+                }
+                state.setGameState(Constants.GET_PLAYER_MOVE);
+            } else if (gameState == Constants.GET_PLAYER_MOVE) {
+                if (ui.getMove(state)) {
+                    state.setGameState(Constants.MAKE_MOVE);
+                }
             }
         }
     }

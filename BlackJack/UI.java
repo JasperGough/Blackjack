@@ -19,6 +19,12 @@ public class UI
    public void printInvalidChoice() {
        System.out.println(Constants.INVALID_CHOICE);
    }
+   public void printDeckShuffled() {
+       System.out.println(Constants.SHUFFLED);
+   }
+   public void printGameStart() {
+       System.out.println(Constants.GAME_BEGIN);
+   }
    public void printWinner (State state) {
        System.out.printf(Constants.GAME_WIN, state.getResult());
        System.out.println();

@@ -4,6 +4,7 @@ public class Constants
     public static final int DECK_SIZE = 52;
     public static final int SUIT_SIZE = 13;
     public static final int SUIT_NUMBER = 4;
+    public static final int DELAY=1000;
     
     public static final int STANDBY = 0;
     public static final int GET_NAME = 1;
@@ -20,10 +21,11 @@ public class Constants
     
     public static final String GET_PLAYER_NAME = "What is your name? -->";
     public static final String SHUFFLE = "Would you like to shuffle? (Y/N)";
+    public static final String SHUFFLED = "Deck shuffled";
+    public static final String GAME_BEGIN = "Game start! You begin by drawing two cards.";
     public static final String GET_MOVE = "%s, your total is %d, Would you like to hit? (Y/N)";
     public static final String PRINT_DRAW = "You drew a %s, your total is now %d.";
     public static final String INVALID_CHOICE = "Please pick either Y or N.";
-    public static final String INVALID_ACE = "Please pick either 1 or 11.";
     public static final String DEALER_START = "You stand. Dealer starts with a total of %d.";
     public static final String DEALER_HIT = "Dealer drew a %s, their total is now %d.";
     public static final String DEALER_STAND = "Dealer stands. They have %d to your %d.";

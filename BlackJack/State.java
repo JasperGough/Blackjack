@@ -93,6 +93,8 @@ public class State
         } else if (currentCard == 13) {
             currentCardString = "king";
             currentCard = 10;
+        } else if (currentCard == 1) {
+            currentCardString = "ace";
         } else {
             currentCardString = Integer.toString(currentCard);
         }
