@@ -53,18 +53,12 @@ public class State
     }
     public void setPlayerTotal(int value) {
         this.playerTotal+=value;
-        if (playerTotal > 21) {
-            playerTotal = -1;
-        }
     }
     public int getPlayerTotal() {
         return playerTotal;
     }
     public void setDealerTotal(int value) {
         this.dealerTotal+=value;
-        if (dealerTotal > 21) {
-            dealerTotal = -1;
-        }
     }
     public int getDealerTotal() {
         return dealerTotal;

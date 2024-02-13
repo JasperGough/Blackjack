@@ -8,7 +8,7 @@ public class UI
        scanner = new Scanner(System.in);
    }
    public String promptForName() {
-       System.out.println(Constants.GET_PLAYER_NAME);
+       System.out.print(Constants.GET_PLAYER_NAME);
        return scanner.next();
    }
    public boolean getMove(State state) {
@@ -41,5 +41,12 @@ public class UI
        System.out.println(Constants.SHUFFLE);
        String answer = scanner.next();
        return answer.equalsIgnoreCase("Y");
+   }
+   public void printBust(State state, String player, int total) {
+       System.out.printf(Constants.BUST, player, total);
+       System.out.println();
+   }
+   public void printDealerStart(State state) {
+       System.out.printf(Constants.DEALER_START, state.getDealerTotal());
    }
 }

@@ -50,7 +50,47 @@ public class EventLoop
             } else if (gameState == Constants.GET_PLAYER_MOVE) {
                 if (ui.getMove(state)) {
                     state.setGameState(Constants.MAKE_MOVE);
+                } else state.setGameState(Constants.DEALER_MOVES);
+            } else if (gameState == Constants.MAKE_MOVE) {
+                state.drawCard();
+                state.setPlayerTotal(state.getCurrentCard());
+                if (state.getPlayerTotal() > 21) {
+                    ui.printBust(state, state.getPlayerName(), state.getPlayerTotal());
+                    state.setPlayerTotal((state.getPlayerTotal()*-1)-1);
+                    state.setGameState(Constants.WINNER);
+                } else {
+                    ui.printMove(state);
+                    state.setGameState(Constants.GET_PLAYER_MOVE);
                 }
+            } else if (gameState == Constants.DEALER_MOVES) {
+                for (int i = 0; i < 2; i++) {
+                    state.drawCard();
+                    state.setDealerTotal(state.getCurrentCard());
+                }
+                ui.printDealerStart(state);
+                while (state.getDealerTotal() < 17) {
+                    state.drawCard();
+                    state.setDealerTotal(state.getCurrentCard());
+                    ui.printDealerMove(state);
+                    try
+                    {
+                        Thread.sleep(Constants.DELAY);
+                    }
+                    catch (InterruptedException ie)
+                    {
+                        ie.printStackTrace();
+                    }
+                }
+                if (state.getDealerTotal() > 21) {
+                    ui.printBust(state, "Dealer", state.getDealerTotal());
+                    state.setDealerTotal((state.getDealerTotal()*-1)-1);
+                    state.setGameState(Constants.WINNER);
+                }
+            } else if (gameState == Constants.WINNER) {
+                ui.printWinner(state);
+                state.setGameState(Constants.GAME_OVER);
+            } else if (gameState == Constants.GAME_OVER) {
+                
             }
         }
     }

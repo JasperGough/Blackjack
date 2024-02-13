@@ -13,11 +13,9 @@ public class Constants
     public static final int GET_PLAYER_MOVE = 4;
     public static final int MAKE_MOVE = 5;
     public static final int DEALER_MOVES = 6;
-    public static final int CHECK_WINNER = 7;
-    public static final int PLAYER_WINS = 8;
-    public static final int DEALER_WINS = 9;
-    public static final int GAME_OVER = 10;
-    public static final int QUIT_PROGRAM = 11;
+    public static final int WINNER = 7;
+    public static final int GAME_OVER = 8;
+    public static final int QUIT_PROGRAM = 9;
     
     public static final String GET_PLAYER_NAME = "What is your name? -->";
     public static final String SHUFFLE = "Would you like to shuffle? (Y/N)";
@@ -28,6 +26,7 @@ public class Constants
     public static final String INVALID_CHOICE = "Please pick either Y or N.";
     public static final String DEALER_START = "You stand. Dealer starts with a total of %d.";
     public static final String DEALER_HIT = "Dealer drew a %s, their total is now %d.";
+    public static final String BUST = "%s busted with a total of %d.";
     public static final String DEALER_STAND = "Dealer stands. They have %d to your %d.";
     public static final String GAME_WIN = "%s wins!";
     public static final String ROUND_TWO = "Play again? (Y/N)";
