@@ -75,7 +75,7 @@ public class State
         currentCard=0;
         while (currentCard == 0) {
             card =(int)(Math.random()*12);
-            suit = (int)Math.random()*3;
+            suit = (int)(Math.random()*3);
             currentCard = deck[card][suit];
         }
         if (currentCard == 11) {

@@ -84,13 +84,17 @@ public class EventLoop
                 if (state.getDealerTotal() > 21) {
                     ui.printBust(state, "Dealer", state.getDealerTotal());
                     state.setDealerTotal((state.getDealerTotal()*-1)-1);
-                    state.setGameState(Constants.WINNER);
                 }
+                state.setGameState(Constants.WINNER);
             } else if (gameState == Constants.WINNER) {
                 ui.printWinner(state);
                 state.setGameState(Constants.GAME_OVER);
             } else if (gameState == Constants.GAME_OVER) {
-                
+                if (ui.playAgain()) {
+                    state.setGameState(Constants.STANDBY);
+                } else {
+                    state.setGameState(Constants.QUIT_PROGRAM);
+                }
             }
         }
     }

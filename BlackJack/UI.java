@@ -48,5 +48,11 @@ public class UI
    }
    public void printDealerStart(State state) {
        System.out.printf(Constants.DEALER_START, state.getDealerTotal());
+       System.out.println("");
+   }
+   public boolean playAgain() {
+       System.out.println(Constants.ROUND_TWO);
+       String answer = scanner.next();
+       return answer.equalsIgnoreCase("Y");
    }
 }
