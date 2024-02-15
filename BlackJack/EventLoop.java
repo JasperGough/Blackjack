@@ -68,6 +68,14 @@ public class EventLoop
                     state.setDealerTotal(state.getCurrentCard());
                 }
                 ui.printDealerStart(state);
+                try
+                {
+                    Thread.sleep(Constants.DELAY);
+                }
+                catch (InterruptedException ie)
+                {
+                    ie.printStackTrace();
+                }
                 while (state.getDealerTotal() < 17) {
                     state.drawCard();
                     state.setDealerTotal(state.getCurrentCard());
@@ -84,6 +92,16 @@ public class EventLoop
                 if (state.getDealerTotal() > 21) {
                     ui.printBust(state, "Dealer", state.getDealerTotal());
                     state.setDealerTotal((state.getDealerTotal()*-1)-1);
+                } else {
+                    ui.printDealerStand(state);
+                    try
+                    {
+                        Thread.sleep(Constants.DELAY);
+                    }
+                    catch (InterruptedException ie)
+                    {
+                        ie.printStackTrace();
+                    }
                 }
                 state.setGameState(Constants.WINNER);
             } else if (gameState == Constants.WINNER) {

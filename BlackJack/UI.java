@@ -55,4 +55,8 @@ public class UI
        String answer = scanner.next();
        return answer.equalsIgnoreCase("Y");
    }
+   public void printDealerStand(State state) {
+       System.out.printf(Constants.DEALER_STAND, state.getDealerTotal(), state.getPlayerTotal());
+       System.out.println();
+   }
 }
